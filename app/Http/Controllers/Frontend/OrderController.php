@@ -76,7 +76,7 @@ class OrderController extends Controller
         $update['email_order'] = $request->email_order;
         $update['status'] = 'Checkout';
 
-        $check = DB::table('tr_orders')->where('customers_id',$user)->first();
+        $check = DB::table('tr_orders')->where('customers_id',$user)->where('status','Draft')->first();
         if ($check) {
             DB::table('tr_orders')->where('id',$check->id)->update($update);
             return redirect('/')->with(["message"=>"Berhasil melakukan pembelian"]);
