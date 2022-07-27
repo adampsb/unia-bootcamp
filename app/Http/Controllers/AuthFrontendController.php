@@ -31,6 +31,15 @@ class AuthFrontendController extends Controller
             return redirect()->back()->withInput()->with(["message"=>"Email Tidak ditemukan"]);
         }
     }
+    public function postRegister(Request $request) {
+        $save['name'] = $request->name;
+        $save['phone'] = $request->phone;
+        $save['email'] = $request->email;
+        $save['password'] = Hash::make($request->password);
+
+        DB::table('customers')->insert($save);
+        return redirect()->back()->with(["message"=>"Success Register"]);
+    }
     public function getLogout() {
         session()->flush();
         return redirect('')->with(["message"=>"Terimakasih"]);

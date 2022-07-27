@@ -79,6 +79,7 @@ Route::get('/product_detail/{id}',[ProductController::class,"getDetail"])->name(
 Route::post('/product_order',[ProductController::class,"postOrder"])->name("productOrder");
 
 Route::post('login',[AuthFrontendController::class,"postLogin"])->name("loginFrontend");
+Route::post('register',[AuthFrontendController::class,"postRegister"])->name("registerFrontend");
 Route::get('logout',[AuthFrontendController::class,"getLogout"])->name("logoutFrontend");
 
 Route::group(['middleware' => ['customer.login']], function(){

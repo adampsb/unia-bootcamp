@@ -88,24 +88,24 @@
                 <div class="my-3">
                     <img src="{{asset('assets/img/logo.png')}}" class="rounded mx-auto d-block">
                 </div>
-
-                <form action="" class="mt-5">
+                <form action="{{url('register')}}" class="mt-5" method="post">
+                    @csrf
                     <input type="hidden" name="type" value="register">
                     <h3 class="fw-bold">Create Your Account</h3>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control form-outline-none form-control-sm" id="floatingName" placeholder="Adam Projo S.B">
+                        <input type="text" name="name" class="form-control form-outline-none form-control-sm" id="floatingName" placeholder="Adam Projo S.B" value="{{old('name')}}">
                         <label for="floatingName">Name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control form-outline-none form-control-sm" id="floatingNumber" placeholder="081390095352">
+                        <input type="number" name="phone" class="form-control form-outline-none form-control-sm" id="floatingNumber" placeholder="081390095352" value="{{old('phone')}}">
                         <label for="floatingNumber">Phone Number</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control form-outline-none form-control-sm" id="floatingEmailRegister" placeholder="name@example.com">
+                        <input type="email" name="email" class="form-control form-outline-none form-control-sm" id="floatingEmailRegister" placeholder="name@example.com" value="{{old('email')}}">
                         <label for="floatingEmailRegister">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control form-outline-none form-control-sm" id="floatingPassword" placeholder="Password">
+                        <input type="password" name="password" class="form-control form-outline-none form-control-sm" id="floatingPassword" placeholder="Password">
                         <label for="floatingPassword">Password</label>
                     </div>
                     <p class="text-end">
